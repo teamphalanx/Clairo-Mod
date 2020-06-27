@@ -1,0 +1,1 @@
+This is the source code for the Clairo Mod, heavy WIP, code is all spaghetti until I learn more about modding with forge and how everything works
