@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aa ",
+    " x ",
+    " x "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:stick"
+    },
+    "a":
+    {
+      "item": "minecraft2:bronze_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft2:bronze_hoe",
+    "count": 1
+  }
+}

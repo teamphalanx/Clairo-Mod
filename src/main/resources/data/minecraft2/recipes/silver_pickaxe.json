@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aaa",
+    " x ",
+    " x "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:stick"
+    },
+    "a":
+    {
+      "item": "minecraft2:example_item"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft2:silver_pickaxe",
+    "count": 1
+  }
+}

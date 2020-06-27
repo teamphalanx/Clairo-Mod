@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient":
+  {
+    "item": "minecraft2:example_block"
+  },
+  "result": "minecraft2:example_item",
+  "experience": 10.0,
+  "cookingtime": 50
+}

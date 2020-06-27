@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients":
+  [{
+    "item": "minecraft2:example_item"
+  }],
+  "result": {
+    "item":"minecraft2:silver_nugget",
+    "count": 9}
+}

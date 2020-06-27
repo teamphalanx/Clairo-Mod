@@ -1,0 +1,104 @@
+{
+  "block.minecraft2.example_block": "Silver Ore",
+  "block.minecraft2.copper_block": "Copper Ore",
+  "block.minecraft2.zinc_block": "Zinc Ore",
+  "block.minecraft2.salt_block": "Salt Block",
+  "block.minecraft2.titanium_block": "Titanium Ore",
+  "block.minecraft2.tin_block": "Tin Ore",
+  "item.minecraft2.example_item": "Silver ingot",
+  "item.minecraft2.copper_ingot": "Copper ingot",
+  "item.minecraft2.zinc_ingot": "Zinc ingot",
+  "item.minecraft2.tin_ingot": "Tin ingot",
+  "item.minecraft2.titanium_ingot": "Titanium ingot",
+  "item.minecraft2.copper_nugget": "Copper nugget",
+  "item.minecraft2.silver_nugget": "Silver nugget",
+  "item.minecraft2.tin_nugget": "Tin nugget",
+  "item.minecraft2.zinc_nugget": "Zinc nugget",
+  "item.minecraft2.titanium_nugget": "Titanium nugget",
+  "item.minecraft2.bronze_ingot": "Bronze ingot",
+  "item.minecraft2.brass_ingot": "Brass ingot",
+  "item.minecraft2.electrum_ingot": "Electrum ingot",
+  "item.minecraft2.steel_ingot": "Steel ingot",
+  "item.minecraft.potion.effect.immunity_potion": "Potion of (partial) Immunity",
+  "item.minecraft.splash_potion.effect.immunity_potion": "Splash Potion of (partial) Immunity",
+  "item.minecraft.lingering_potion.effect.immunity_potion": "Lingering Potion of (partial) Immunity",
+  "item.minecraft2.titanium_pickaxe": "Titanium Pickaxe",
+  "item.minecraft2.titanium_axe": "Titanium Axe",
+  "item.minecraft2.titanium_sword": "Titanium Sword",
+  "item.minecraft2.titanium_shovel": "Titanium Shovel",
+  "item.minecraft2.titanium_hoe": "Titanium Hoe",
+  "item.minecraft2.copper_pickaxe": "Copper Pickaxe",
+  "item.minecraft2.copper_axe": "Copper Axe",
+  "item.minecraft2.copper_shovel": "Copper Shovel",
+  "item.minecraft2.copper_sword": "Copper Sword",
+  "item.minecraft2.copper_hoe": "Copper Hoe",
+  "item.minecraft2.silver_pickaxe": "Silver Pickaxe",
+  "item.minecraft2.silver_axe": "Silver Axe",
+  "item.minecraft2.silver_sword": "Silver Sword",
+  "item.minecraft2.silver_shovel": "Silver Shovel",
+  "item.minecraft2.silver_hoe": "Silver Hoe",
+  "item.minecraft2.brass_nugget": "Brass Nuggets",
+  "item.minecraft2.bag": "Bag",
+  "item.minecraft2.bronze_pickaxe": "Bronze Pickaxe",
+  "item.minecraft2.steel_pickaxe": "Steel Pickaxe",
+  "item.minecraft2.brass_pickaxe": "Brass Pickaxe",
+  "item.minecraft2.electrum_pickaxe": "Electrum Pickaxe",
+  "item.minecraft2.bronze_axe": "Bronze Axe",
+  "item.minecraft2.brass_axe": "Brass Axe",
+  "item.minecraft2.electrum_axe": "Electrum Axe",
+  "item.minecraft2.steel_axe": "Steel Axe",
+  "item.minecraft2.bronze_sword": "Bronze Sword",
+  "item.minecraft2.brass_sword": "Brass Sword",
+  "item.minecraft2.electrum_sword": "Electrum Sword",
+  "item.minecraft2.steel_sword": "Steel Sword",
+  "item.minecraft2.bronze_shovel": "Bronze Shovel",
+  "item.minecraft2.brass_shovel": "Brass Shovel",
+  "item.minecraft2.electrum_shovel": "Electrum Shovel",
+  "item.minecraft2.steel_shovel": "Steel Shovel",
+  "item.minecraft2.bronze_hoe": "Bronze Hoe",
+  "item.minecraft2.brass_hoe": "Brass Hoe",
+  "item.minecraft2.electrum_hoe": "Electrum Hoe",
+  "item.minecraft2.steel_hoe": "Steel Hoe",
+  "item.minecraft2.flint_pickaxe": "Flint Splitter",
+  "item.minecraft2.flint_axe": "Flint Cutter",
+  "item.minecraft2.flint_sword": "Flint Spear",
+  "item.minecraft2.flint_shovel": "Flint Shovel",
+  "item.minecraft2.flint_hoe": "Flint Hoe",
+  "item.minecraft2.clairo_egg": "Summon Clairo",
+  "block.minecraft2.furnaceblock": "Alloy Furnace",
+  "item.minecraft2.bronze_nugget": "Bronze Nugget",
+  "item.minecraft2.electrum_nugget": "Electrum Nugget",
+  "item.minecraft2.steel_nugget": "Steel Nugget"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
