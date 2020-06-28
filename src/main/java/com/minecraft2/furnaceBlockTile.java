@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -12,6 +13,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
@@ -66,7 +68,12 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
 
                             if (energy == 160) {
 
-                                h.insertItem(3, recipes.alloy(h).getDefaultInstance(), false);
+                                h.insertItem(3, new ItemStack(new IItemProvider() {
+                                    @Override
+                                    public Item asItem() {
+                                        return recipes.alloy(h);
+                                    }
+                                }), false);
                                 energy = 0;
 
 

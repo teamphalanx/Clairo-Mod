@@ -15,6 +15,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.PotionItem;
@@ -23,10 +24,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -163,7 +161,12 @@ public class Clairo extends AnimalEntity implements INamedContainerProvider {
                     }
                     if((h.getStackInSlot(0).getItem() == ItemInit.bag.getItem() && h.getStackInSlot(1).getItem() == Items.GLASS_BOTTLE && h.getStackInSlot(2).getItem() == Items.AIR) || h.getStackInSlot(1).getItem() == ItemInit.bag.getItem() && h.getStackInSlot(0).getItem() == Items.GLASS_BOTTLE && h.getStackInSlot(2).getItem() == Items.AIR )
                     {
-                        h.insertItem(2, PotionUtils.addPotionToItemStack(Items.POTION.getDefaultInstance(), minecraft2mod.RegistryEvents.immunity_potion), false);
+                        h.insertItem(2, PotionUtils.addPotionToItemStack(new ItemStack(new IItemProvider() {
+                            @Override
+                            public Item asItem() {
+                                return Items.POTION;
+                            }
+                        }), minecraft2mod.RegistryEvents.immunity_potion), false);
                     }
 
 

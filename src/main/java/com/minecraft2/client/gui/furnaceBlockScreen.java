@@ -39,7 +39,7 @@ public class furnaceBlockScreen extends ContainerScreen<furnaceBlockContainer> {
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
         this.blit(relX + 87, relY + 26, 181, 0, (int)(((28.0/160.0)*(double)furnaceBlockTile.energy)), 21);
         this.blit(relX + 47, relY + 29 + 13 - (int)(((13.0/1280.0)*(double)furnaceBlockTile.count)), 210, 13 - (int)(((13.0/1280.0)*(double)furnaceBlockTile.count)), 14, 14);
-        //minecraft2mod.logger.info(17 - (int)(((17.0/1280.0)*(double)furnaceBlockTile.count)));
+        minecraft2mod.logger.info(17 - (int)(((17.0/1280.0)*(double)furnaceBlockTile.count)));
         //this.drawRightAlignedString(minecraft.fontRenderer, "Alloy Furnace", relX + 167, relY + 3, 16730371);
         minecraft.fontRenderer.drawString("Alloy Furnace", relX + 93, relY +3, 16730371);
     }
