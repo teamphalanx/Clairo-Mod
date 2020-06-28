@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "aaa",
+    "aba",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:cobblestone"
+    },
+    "a":
+    {
+      "item": "minecraft2:copper_ingot"
+    },
+    "b":
+    {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft2:furnaceblock",
+    "count": 1
+  }
+}
