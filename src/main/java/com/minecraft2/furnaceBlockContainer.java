@@ -21,13 +21,15 @@ import static com.minecraft2.ModBlocks.FURNACEBLOCK_CONTAINER;
 
 public class furnaceBlockContainer extends Container {
 
-    private TileEntity tileEntity;
+
+
+    private furnaceBlockTile tileEntity;
     private PlayerEntity playerEntity;
     private IItemHandler playerInventory;
 
     public furnaceBlockContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(FURNACEBLOCK_CONTAINER, windowId);
-        tileEntity = world.getTileEntity(pos);
+        tileEntity = (furnaceBlockTile)world.getTileEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
 
@@ -118,5 +120,8 @@ public class furnaceBlockContainer extends Container {
         }
 
         return itemstack;
+    }
+    public furnaceBlockTile getTileEntity() {
+        return this.tileEntity;
     }
 }

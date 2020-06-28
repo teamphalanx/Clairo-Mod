@@ -1,6 +1,5 @@
 package com.minecraft2;
 
-import com.minecraft2.Init.ItemInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -9,19 +8,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -40,8 +37,8 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
         super(FURNACEBLOCK_TILE);
     }
 
-    public static int count;
-    public static int energy;
+    private int count;
+    private int energy;
     public boolean cooking;
 
 
@@ -60,11 +57,12 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
             handler.ifPresent(h -> {
 
                 if (h.getStackInSlot(3).getItem() == Items.AIR || h.getStackInSlot(3).getItem() == recipes.checkAlloy(h)) {
-                    if (h.getStackInSlot(1).getItem() != Items.AIR && h.getStackInSlot(0).getItem() != Items.AIR && (h.getStackInSlot(2).getItem() == Items.COAL || count > 0)) {
+                    if (!h.getStackInSlot(1).isEmpty() && !h.getStackInSlot(0).isEmpty() && (h.getStackInSlot(2).getItem() == Items.COAL || count > 0)) {
                         cooking = true;
                         if (count > 0) {
                             count--;
                             energy++;
+
 
                             if (energy == 160) {
 
@@ -103,6 +101,7 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
             this.markDirty();
 
         }
+        //minecraft2mod.logger.info("ENERGY IS: " + getEnergy());
 
     }
 
@@ -110,11 +109,15 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
     public void read(CompoundNBT tag) {
         CompoundNBT invTag = tag.getCompound("inv");
         handler.ifPresent(h -> ((INBTSerializable<CompoundNBT>)h).deserializeNBT(invTag));
+        this.energy = tag.getInt("energy");
+        this.count = tag.getInt("count");
         super.read(tag);
     }
 
     @Override
     public CompoundNBT write(CompoundNBT tag) {
+        tag.putInt("energy", this.energy);
+        tag.putInt("count", this.count);
         handler.ifPresent(h -> {
             CompoundNBT compound = ((INBTSerializable<CompoundNBT>)h).serializeNBT();
             tag.put("inv", compound);
@@ -155,7 +158,32 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
         return new furnaceBlockContainer(i, world, pos, playerInventory, playerEntity);
     }
 
+    public int getCount() {
+        return this.count;
+    }
 
+    public int getEnergy() {
+        return (int)(((28.0/160.0)*(double)this.energy));
+    }
 
+    @Nullable
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        return new SUpdateTileEntityPacket(this.getPos(), -1, this.serializeNBT());
+    }
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        this.deserializeNBT(pkt.getNbtCompound());
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundNBT tag) {
+        super.handleUpdateTag(tag);
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        return this.write(new CompoundNBT());
+    }
 
 }

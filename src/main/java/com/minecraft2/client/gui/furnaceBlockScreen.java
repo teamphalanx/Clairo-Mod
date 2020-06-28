@@ -8,14 +8,17 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import com.minecraft2.furnaceBlockTile;
-import com.minecraft2.minecraft2mod;
+
 
 public class furnaceBlockScreen extends ContainerScreen<furnaceBlockContainer> {
 
     private ResourceLocation GUI = new ResourceLocation(minecraft2mod.MOD_ID, "textures/gui/furnaceblock_gui.png");
 
+    furnaceBlockTile tile;
+
     public furnaceBlockScreen(furnaceBlockContainer container, PlayerInventory inv, ITextComponent name) {
         super(container, inv, name);
+        tile = container.getTileEntity();
     }
 
     @Override
@@ -37,10 +40,14 @@ public class furnaceBlockScreen extends ContainerScreen<furnaceBlockContainer> {
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
-        this.blit(relX + 87, relY + 26, 181, 0, (int)(((28.0/160.0)*(double)furnaceBlockTile.energy)), 21);
-        this.blit(relX + 47, relY + 29 + 13 - (int)(((13.0/1280.0)*(double)furnaceBlockTile.count)), 210, 13 - (int)(((13.0/1280.0)*(double)furnaceBlockTile.count)), 14, 14);
-        minecraft2mod.logger.info(17 - (int)(((17.0/1280.0)*(double)furnaceBlockTile.count)));
+        this.blit(relX + 87, relY + 26, 181, 0, tile.getEnergy(), 21);
+        this.blit(relX + 47, relY + 29 + 13 - (int)(((13.0/1280.0)*(double)tile.getCount())), 210, 13 - (int)(((13.0/1280.0)*tile.getCount())), 14, 14);
+        //minecraft2mod.logger.info((int)(((28.0/160.0)*(double)tile.getEnergy())));
+       // minecraft2mod.logger.info(tile.getEnergy());
+       // minecraft2mod.logger.info(tile.cooking);
         //this.drawRightAlignedString(minecraft.fontRenderer, "Alloy Furnace", relX + 167, relY + 3, 16730371);
         minecraft.fontRenderer.drawString("Alloy Furnace", relX + 93, relY +3, 16730371);
     }
+
+
 }

@@ -76,6 +76,7 @@ public class furnaceblock extends Block {
         }
         return super.onBlockActivated(state, world, pos, player, hand, result);
     }
+
 }
 
 

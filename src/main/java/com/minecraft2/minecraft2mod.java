@@ -36,6 +36,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
@@ -61,12 +63,14 @@ public class minecraft2mod
 {
     public static final String MOD_ID = "minecraft2";
     private static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, "minecraft");
-    public static final String networkChannelName = "minecraft2";
+
 
 
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 
     public static Logger logger = LogManager.getLogger(MOD_ID);
+    private static final String PROTOCOL_VERSION = "1";
+
 
     public minecraft2mod()
     {
@@ -82,6 +86,11 @@ public class minecraft2mod
 
         //ModContainerTypes.CONTAINER_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        int id = 0;
+
+
+
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {

@@ -2,6 +2,7 @@ package com.minecraft2.Init;
 
 import com.minecraft2.ModBlocks;
 import com.minecraft2.client.gui.ClairoScreen;
+import com.minecraft2.furnaceBlockTile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,5 +27,6 @@ public class ServerProxy implements IProxy {
     {
         //throw new IllegalStateException("only on client.");
     }
+
 
 }
