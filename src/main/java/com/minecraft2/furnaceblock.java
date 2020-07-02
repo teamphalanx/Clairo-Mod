@@ -75,9 +75,9 @@ public class furnaceblock extends Block {
             } else {
                 throw new IllegalStateException("Our named container provider is missing!");
             }
-            return ActionResultType.PASS;
+            return ActionResultType.SUCCESS;
         }
-        return super.onBlockActivated(state, world, pos, player, hand, result);
+        return ActionResultType.SUCCESS;
     }
 
     @Override

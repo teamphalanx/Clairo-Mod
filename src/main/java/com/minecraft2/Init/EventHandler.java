@@ -59,7 +59,7 @@ public class EventHandler {
                 }
                 if(event.getPlayer().inventory.getCurrentItem().getItem() instanceof BlockItem && event.getWorld().getBlockState(event.getPos()).getBlock() == ModBlocks.furnaceblock)
                 {
-                    event.setCanceled(true);
+                    //event.setCanceled(true);
                 }
                 {
 
@@ -74,8 +74,7 @@ public class EventHandler {
     {
         if(!event.getWorld().isRemote)
         {
-            minecraft2mod.logger.info(event.getWorld().getBlockState(event.getPos()).getBlock().getHarvestLevel(event.getWorld().getBlockState(event.getPos())));
-            minecraft2mod.logger.info(event.getPlayer().inventory.getCurrentItem().getItem().getHarvestLevel(null, ToolType.PICKAXE, null, null));
+            minecraft2mod.logger.info(minecraft2mod.RegistryEvents.flint_pickaxe.canHarvestBlock(event.getWorld().getBlockState(event.getPos())));
         }
     }
 

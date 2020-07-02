@@ -86,9 +86,6 @@ public class minecraft2mod
 
         //ModContainerTypes.CONTAINER_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        int id = 0;
-
-
 
 
     }
@@ -185,7 +182,7 @@ public class minecraft2mod
         static Item silver_pickaxe;
         static Item electrum_pickaxe;
         static Item steel_pickaxe;
-        static Item titanium_pickaxe, flint_pickaxe;
+        public static Item titanium_pickaxe, flint_pickaxe;
         static Item copper_axe, flint_axe,  bronze_axe,  silver_axe, brass_axe, electrum_axe, steel_axe, titanium_axe;
         static Item copper_sword, flint_sword,  bronze_sword,  silver_sword, brass_sword, electrum_sword, steel_sword, titanium_sword;
         static Item copper_shovel, flint_shovel,  bronze_shovel,  silver_shovel, brass_shovel, electrum_shovel, steel_shovel, titanium_shovel;
@@ -251,6 +248,7 @@ public class minecraft2mod
 
 
 
+
                     );
             Item.Properties properties = new Item.Properties()
                     .group(ItemGroup.DECORATIONS);
@@ -262,11 +260,6 @@ public class minecraft2mod
             event.getRegistry().register(TileEntityType.Builder.create(furnaceBlockTile::new, ModBlocks.furnaceblock).build(null).setRegistryName("furnaceblock"));
         }
 
-        @SubscribeEvent
-        public static void TickEvent(TickEvent event)
-        {
-            logger.info("TICK");
-        }
         @SubscribeEvent
         public static void onPotionRegistry(final RegistryEvent.Register<Potion> event)
         {
