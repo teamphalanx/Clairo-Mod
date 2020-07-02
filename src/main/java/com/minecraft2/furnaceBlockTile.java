@@ -105,6 +105,11 @@ public class furnaceBlockTile extends TileEntity implements ITickableTileEntity,
 
     }
 
+    public IItemHandler getInventory(@Nullable IItemHandler obj)
+    {
+        return handler.orElse(obj);
+    }
+
     @Override
     public void read(CompoundNBT tag) {
         CompoundNBT invTag = tag.getCompound("inv");

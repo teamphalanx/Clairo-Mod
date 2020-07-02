@@ -11,7 +11,7 @@ import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
-public enum toolmateriallist implements IItemTier {
+public enum     toolmateriallist implements IItemTier {
 
     WOOD(0, 59, 0.0F, 0.0F, 15, () -> {
         return Ingredient.fromTag(ItemTags.PLANKS);

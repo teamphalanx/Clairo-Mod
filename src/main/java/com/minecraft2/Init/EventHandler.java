@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -48,7 +49,8 @@ public class EventHandler {
                             index ++;
                             if (stack.getItem() == ItemInit.bag.getItem() && !removed)
                             {
-                                player.inventory.removeStackFromSlot(index-1);
+                                player.inventory.decrStackSize(index-1, 1);
+
                                 removed = true;
                             }
                         }
@@ -63,6 +65,17 @@ public class EventHandler {
 
                 }
             }
+
+        }
+    }
+
+    @SubscribeEvent
+    public void hit (PlayerInteractEvent.LeftClickBlock event)
+    {
+        if(!event.getWorld().isRemote)
+        {
+            minecraft2mod.logger.info(event.getWorld().getBlockState(event.getPos()).getBlock().getHarvestLevel(event.getWorld().getBlockState(event.getPos())));
+            minecraft2mod.logger.info(event.getPlayer().inventory.getCurrentItem().getItem().getHarvestLevel(null, ToolType.PICKAXE, null, null));
         }
     }
 
